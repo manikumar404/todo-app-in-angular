@@ -1,0 +1,52 @@
+<section>
+  <h1 class="title is-2 has-text-centered">Todo App</h1>
+</section>
+<div class="container">
+  <div class="add-todo-box">
+    <form #form="ngForm" (ngSubmit)="todoOnSubmit(form, todoTextField)">
+      <h2 class="title-5 is-5">New Todo</h2>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input
+            required
+            minlength="2"
+            ngModel
+            #todoTextField="ngModel"
+            name="text"
+            class="input"
+            type="text"
+            placeholder="Type a todo to add..."
+          />
+        </p>
+        <p class="control">
+          <button class="button is-danger">+ Add</button>
+        </p>
+      </div>
+      <div *ngIf="httpError.length > 0">
+        <p class="help is-danger">
+          {{ httpError }}
+        </p>
+      </div>
+      <div *ngIf="todoTextField.errors && showErrors">
+        <p
+          *ngIf="todoTextField.errors['required'] && form.submitted"
+          class="help is-danger"
+        >
+          This field is required
+        </p>
+        <p *ngIf="todoTextField.errors['minlength']" class="help is-danger">
+          This field should have atlist 2 characters
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-todo-items
+  *ngFor="let todo of todos"
+  [todo]="todo"
+  (todoClicked)="todoClicked(todo)"
+  (deleteTodoClicked)="deleteTodoClicked(todo)"
+  (editTodoClicked)="editTodoClicked(todo)"
+>
+</app-todo-items>

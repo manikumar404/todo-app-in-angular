@@ -1,0 +1,62 @@
+
+
+.todo-container {
+    display: flex;
+    max-width: 800px;
+    min-width: 700px;
+    min-height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: -1px 17px 16px -2px rgba(94,94,94,0.32);
+    -webkit-box-shadow: -1px 17px 16px -2px rgba(94,94,94,0.32);
+    -moz-box-shadow: -1px 17px 16px -2px rgba(94,94,94,0.32);
+}
+
+.todo-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.completed{
+    border-radius:50%;
+    background-color: rgb(87, 218, 87);
+   
+}
+
+.icon-done{
+    border-radius: 50%;
+    visibility: hidden;
+
+}
+.icon-delete{
+    color:rgb(250, 49, 99);
+}
+.icon-edit{
+    color:rgb(8, 180, 172);
+}
+.task-completed{
+    font-weight: 300;
+}
+.options{
+visibility: hidden;
+}
+.todo-container:hover{
+    .options{
+        visibility: visible;
+    }
+    .icon-done{
+        visibility: visible;
+    }
+}
+
+div > span:hover{
+   cursor:pointer;
+   border-radius: 50%;
+   background-color: rgba(156, 151, 151, 0.32);
+
+
+    
+}

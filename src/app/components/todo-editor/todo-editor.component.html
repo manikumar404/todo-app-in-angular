@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Edit Todo</h1>
+<div mat-dialog-content>
+  <form #form="ngForm" (ngSubmit)="onEditDialogSubmit(form)">
+    <div class="field">
+      <div class="control">
+        <input
+          #todoTextField="ngModel"
+          required
+          minlength="2"
+          type="text"
+          class="input"
+          [ngModel]="todo.title"
+          name="text"
+          placeholder="Type todo here ..."
+        />
+      </div>
+      <div *ngIf="todoTextField.errors && showErrors">
+        <p
+          *ngIf="todoTextField.errors['required'] && form.submitted"
+          class="help is-danger"
+        >
+          This field is required
+        </p>
+        <p *ngIf="todoTextField.errors['minlength']" class="help is-danger">
+          This field should have atlist 2 characters
+        </p>
+      </div>
+      <div class="field is-grouped is-grouped-right mx-2 my-2">
+        <div class="control">
+          <button
+            type="button"
+            class="button is-light"
+            (click)="closeEditTodoDialog()"
+          >
+            cancel
+          </button>
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-danger">save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

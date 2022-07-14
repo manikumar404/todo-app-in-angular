@@ -1,0 +1,24 @@
+<section class="todo-section">
+  <div class="todo-container">
+    <span
+      class="icon-done icon material-icons"
+      [class.completed]="todo?.completed"
+      (click)="onTodoClicked()"
+    >
+      done
+    </span>
+    <p
+      class="todo-text task-completed"
+      [class.task-completed]="todo?.completed"
+      (click)="onTodoClicked()"
+    >
+      {{ todo?.title }}
+    </p>
+    <div class="options">
+      <span class="icon-delete material-icons" (click)="deleteTodo()">
+        delete
+      </span>
+      <span class="icon-edit material-icons" (click)="editTodo()"> edit </span>
+    </div>
+  </div>
+</section>
